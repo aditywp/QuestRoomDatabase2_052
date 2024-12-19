@@ -31,6 +31,7 @@ import com.example.roomdatabase.ui.viewmodel.FormErrorState
 import com.example.roomdatabase.ui.viewmodel.MahasiswaEvent
 import com.example.roomdatabase.ui.viewmodel.MahasiswaViewModel
 import com.example.roomdatabase.ui.viewmodel.MhsUIState
+import com.example.roomdatabase.ui.viewmodel.PenyediaViewModel
 import kotlinx.coroutines.launch
 
 
@@ -218,7 +219,8 @@ fun  InserMhsView(
             TopAppBar(
                 onBack = onBack,
                 showBackButton = true,
-                judul = "Tambah Mahasiswa"
+                judul = "Tambah Mahasiswa",
+                modifier = modifier
             )
             // Isi Body
             InsertBodyMhs(
