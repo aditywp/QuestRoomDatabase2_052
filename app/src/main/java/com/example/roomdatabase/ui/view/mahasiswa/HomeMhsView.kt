@@ -199,9 +199,10 @@ fun HomeMhsView(
         modifier = modifier,
         topBar = {
             TopAppBar(
-                judul = "Daftar Mahasiswa",
+                onBack = { },
                 showBackButton = false,
-                onBack = { }
+                judul = "Daftar Mahasiswa",
+                modifier = modifier
             )
         },
 
