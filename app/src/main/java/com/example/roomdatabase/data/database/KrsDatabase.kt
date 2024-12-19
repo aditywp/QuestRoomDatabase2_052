@@ -1,6 +1,8 @@
 package com.example.roomdatabase.data.database
 
+import android.content.Context
 import androidx.room.Database
+import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.roomdatabase.data.dao.MahasiswaDao
 import com.example.roomdatabase.data.entity.Mahasiswa
@@ -14,6 +16,16 @@ abstract class KrsDatabase : RoomDatabase() {
     companion object {
         @Volatile // Memastikan bahwa nilai variabel Instance selalu sama di semua thread
         private var instance: KrsDatabase? = null
-        
+
+        fun getDatabase(context: Context): KrsDatabase {
+            return (instance?: synchronized(this) {
+                Room.databaseBuilder(
+                    context.applicationContext,
+                    KrsDatabase::class.java, // Class database yang akan dibangun
+                    "KrsDatabase" // Nama database
+                )
+                    .build().also { instance = it }
+            })
+        }
     }
 }
