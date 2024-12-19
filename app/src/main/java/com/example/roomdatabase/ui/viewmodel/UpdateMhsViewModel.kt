@@ -86,5 +86,5 @@ class UpdateMhsViewModel (
 }
 
 fun Mahasiswa.toUIStateMhs():MhsUIState = MhsUIState(
-    mahasiswaEvent = this.toDetailEvent,
+    mahasiswaEvent = this.toDetailUiEvent(),
     )
